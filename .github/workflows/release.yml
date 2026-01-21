@@ -1,6 +1,9 @@
 name: Release
 
 on:
+  push:
+    tags:
+      - 'v*'
   workflow_dispatch:
     inputs:
       version:
@@ -39,14 +42,22 @@ jobs:
         id: version
         working-directory: packages/create-unmint
         run: |
-          INPUT="${{ github.event.inputs.version }}"
-          if [[ "$INPUT" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            npm version "$INPUT" --no-git-tag-version
-            VERSION="$INPUT"
+          if [ "${{ github.event_name }}" = "push" ]; then
+            # Extract version from tag (v1.0.1 -> 1.0.1)
+            VERSION="${GITHUB_REF#refs/tags/v}"
           else
-            npm version "$INPUT" --no-git-tag-version
-            VERSION=$(node -p "require('./package.json').version")
+            INPUT="${{ github.event.inputs.version }}"
+            if [[ "$INPUT" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+              VERSION="$INPUT"
+            else
+              # patch/minor/major - let npm calculate
+              npm version "$INPUT" --no-git-tag-version
+              VERSION=$(node -p "require('./package.json').version")
+              echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
           fi
+          npm version "$VERSION" --no-git-tag-version
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Build CLI
@@ -54,6 +65,7 @@ jobs:
         working-directory: packages/create-unmint
 
       - name: Commit version bump
+        if: github.event_name == 'workflow_dispatch'
         run: |
           git add packages/create-unmint/package.json
           git commit -m "Release v${{ steps.version.outputs.version }}"
