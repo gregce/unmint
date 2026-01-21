@@ -32,15 +32,15 @@ export function SearchTrigger() {
         type="button"
         onClick={() => setOpen(true)}
         className={cn(
-          'flex items-center gap-2 px-3 py-2 rounded-lg min-w-[200px]',
+          'flex items-center gap-3 px-4 py-2.5 rounded-lg w-full max-w-md',
           'bg-muted/50 border border-border/50',
           'text-sm text-muted-foreground hover:text-foreground hover:bg-muted hover:border-border',
           'transition-all'
         )}
       >
         <SearchIcon className="w-4 h-4 shrink-0" />
-        <span className="flex-1 text-left">Search docs...</span>
-        <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-background/80 text-xs font-mono text-muted-foreground/60 border border-border/40">
+        <span className="flex-1 text-left">Search documentation...</span>
+        <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-1 rounded bg-background/80 text-xs font-mono text-muted-foreground/60 border border-border/40">
           <span>⌘</span>K
         </kbd>
       </button>
