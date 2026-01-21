@@ -28,10 +28,12 @@ export function Accordion({ title, children, defaultOpen = false }: AccordionPro
     <div>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center justify-between px-4 py-4 text-left font-medium text-foreground hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+        aria-expanded={isOpen}
+        className="flex w-full items-center justify-between px-4 py-4 text-left font-medium text-foreground hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-inset"
       >
         <span>{title}</span>
         <svg
+          aria-hidden="true"
           className={cn(
             'w-5 h-5 text-muted-foreground transition-transform duration-200',
             isOpen && 'rotate-180'

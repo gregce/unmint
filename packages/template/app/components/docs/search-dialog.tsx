@@ -31,6 +31,7 @@ export function SearchTrigger() {
       <button
         type="button"
         onClick={() => setOpen(true)}
+        aria-haspopup="dialog"
         className={cn(
           'flex items-center gap-3 px-4 py-2.5 rounded-lg w-full max-w-md',
           'bg-muted/50 border border-border/50',
@@ -198,7 +199,7 @@ function SearchDialog({ onClose }: SearchDialogProps) {
                 <p>Searching...</p>
               </div>
             ) : results.length > 0 ? (
-              <ul ref={resultsRef} className="py-2">
+              <ul ref={resultsRef} role="listbox" aria-label="Search results" className="py-2">
                 {results.map((result, index) => {
                   // Build breadcrumb path
                   const breadcrumbPath = result.breadcrumbs && result.breadcrumbs.length > 0
@@ -211,8 +212,11 @@ function SearchDialog({ onClose }: SearchDialogProps) {
                         type="button"
                         onClick={() => handleSelect(result.url)}
                         onMouseEnter={() => setSelectedIndex(index)}
+                        role="option"
+                        aria-selected={selectedIndex === index}
                         className={cn(
-                          'w-full px-4 py-3 text-left transition-colors focus:outline-none',
+                          'w-full px-4 py-3 text-left transition-colors',
+                          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--accent)]',
                           selectedIndex === index
                             ? 'bg-gray-100 dark:bg-gray-800'
                             : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'
@@ -265,6 +269,7 @@ function SearchDialog({ onClose }: SearchDialogProps) {
 function SearchIcon({ className }: { className?: string }) {
   return (
     <svg
+      aria-hidden="true"
       className={className}
       fill="none"
       viewBox="0 0 24 24"
