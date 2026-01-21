@@ -15,8 +15,8 @@ export const siteConfig = {
   logo: {
     src: '/logo.png',
     alt: 'My Project',
-    width: 32,
-    height: 32,
+    width: 40,
+    height: 40,
   },
 
   // Navigation links
