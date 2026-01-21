@@ -13,12 +13,11 @@ on:
 
 permissions:
   contents: write
+  id-token: write  # Required for npm trusted publishing (OIDC)
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
