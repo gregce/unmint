@@ -1,0 +1,111 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Font families */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  /* Base colors */
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  --color-border: #e2e8f0;
+
+  /* Accent colors - customize these in theme-config.ts */
+  --color-accent: #0891b2;
+  --color-accent-foreground: #ffffff;
+  --color-accent-muted: rgba(8, 145, 178, 0.1);
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --border: 214.3 31.8% 91.4%;
+
+    /* Accent colors */
+    --accent: #0891b2;
+    --accent-foreground: #ffffff;
+    --accent-muted: rgba(8, 145, 178, 0.1);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --border: 217.2 32.6% 17.5%;
+
+    /* Accent colors - brighter for dark mode */
+    --accent: #22d3ee;
+    --accent-foreground: #0f172a;
+    --accent-muted: rgba(34, 211, 238, 0.1);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Syntax highlighting - Shiki integration */
+pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+pre code {
+  display: block;
+  min-width: max-content;
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+/* Shiki theme variables */
+html.dark pre,
+html.dark code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+html:not(.dark) pre,
+html:not(.dark) code span {
+  color: var(--shiki-light) !important;
+  background-color: var(--shiki-light-bg) !important;
+}
+
+/* Code block line highlighting */
+pre code [data-highlighted-line] {
+  background-color: rgba(200, 200, 255, 0.1);
+  display: block;
+  margin: 0 -1rem;
+  padding: 0 1rem;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}

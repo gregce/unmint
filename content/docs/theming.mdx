@@ -1,0 +1,41 @@
+---
+title: Theming
+description: Customize colors, fonts, and branding
+---
+
+All theming options are centralized in `lib/theme-config.ts`.
+
+## Site Configuration
+
+```typescript
+export const siteConfig = {
+  name: 'My Docs',
+  description: 'Documentation for My Project',
+  url: 'https://docs.example.com',
+  logo: { src: '/logo.png', alt: 'My Project', width: 32, height: 32 },
+  links: {
+    github: 'https://github.com/your-org/your-repo',
+  },
+}
+```
+
+## Accent Colors
+
+Customize your accent color:
+
+```typescript
+export const themeConfig = {
+  colors: {
+    light: { accent: '#0891b2' },
+    dark: { accent: '#22d3ee' },
+  },
+}
+```
+
+<Tip>
+Use a brighter shade of your accent color for dark mode.
+</Tip>
+
+## CSS Variables
+
+Available variables: `--accent`, `--accent-foreground`, `--accent-muted`.

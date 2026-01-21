@@ -1,0 +1,82 @@
+---
+title: Components
+description: Pre-built MDX components for beautiful documentation
+---
+
+Unmint includes a rich set of MDX components that you can use in your documentation pages.
+
+## Cards
+
+Use cards to highlight links or features:
+
+<CardGroup cols={2}>
+  <Card title="Quick Start" icon="rocket" href="/docs/quickstart">
+    Get started in under 5 minutes
+  </Card>
+  <Card title="Components" icon="code" href="/docs/components">
+    Explore available components
+  </Card>
+</CardGroup>
+
+### Available Icons
+
+Cards support these built-in icons: `rocket`, `code`, `book`, `gear`, `plug`, `terminal`.
+
+## Callouts
+
+Callouts draw attention to important information:
+
+<Info>
+This is an info callout for general information.
+</Info>
+
+<Tip>
+This is a tip callout for helpful suggestions.
+</Tip>
+
+<Warning>
+This is a warning callout for potential issues.
+</Warning>
+
+## Steps
+
+Use steps for sequential instructions:
+
+<Steps>
+  <Step title="First Step">
+    Do this first.
+  </Step>
+  <Step title="Second Step">
+    Then do this.
+  </Step>
+</Steps>
+
+## Tabs
+
+Organize related content into tabs:
+
+<Tabs>
+  <Tab title="npm">
+    ```bash
+    npm install my-package
+    ```
+  </Tab>
+  <Tab title="yarn">
+    ```bash
+    yarn add my-package
+    ```
+  </Tab>
+</Tabs>
+
+## Accordions
+
+Collapse content that isn't always needed:
+
+<AccordionGroup>
+  <Accordion title="What is Unmint?">
+    Unmint is a free, open-source documentation system.
+  </Accordion>
+  <Accordion title="Is it really free?">
+    Yes! MIT licensed and free to use.
+  </Accordion>
+</AccordionGroup>

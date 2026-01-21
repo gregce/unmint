@@ -1,0 +1,13 @@
+{
+  "title": "Documentation",
+  "pages": [
+    "index",
+    "quickstart",
+    "---Getting Started---",
+    "components",
+    "theming",
+    "---Guides---",
+    "deployment",
+    "customization"
+  ]
+}

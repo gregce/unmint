@@ -1,0 +1,34 @@
+---
+title: Customization
+description: Advanced customization options
+---
+
+## Navigation Structure
+
+Edit `content/docs/meta.json`:
+
+```json
+{
+  "pages": [
+    "index",
+    "quickstart",
+    "---Getting Started---",
+    "installation"
+  ]
+}
+```
+
+- **Page references**: Filename without `.mdx`
+- **Separators**: `"---Section Name---"` for headers
+
+## Adding Components
+
+Create custom MDX components in `app/components/docs/mdx/`:
+
+```tsx
+export function MyComponent({ children }) {
+  return <div className="my-component">{children}</div>
+}
+```
+
+Then register in `app/components/docs/mdx/index.tsx`.

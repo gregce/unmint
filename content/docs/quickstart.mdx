@@ -1,0 +1,110 @@
+---
+title: Quick Start
+description: Get your documentation site up and running in under 5 minutes
+---
+
+This guide will help you set up Unmint and create your first documentation page.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- **Node.js 18+** installed
+- **npm** or **pnpm** package manager
+- A code editor (VS Code recommended)
+
+## Installation
+
+<Steps>
+  <Step title="Clone the repository">
+    Start by cloning the Unmint template:
+
+    ```bash
+    git clone https://github.com/your-org/unmint.git my-docs
+    cd my-docs
+    ```
+  </Step>
+
+  <Step title="Install dependencies">
+    Install the required npm packages:
+
+    ```bash
+    npm install
+    ```
+  </Step>
+
+  <Step title="Start the development server">
+    Launch the local development server:
+
+    ```bash
+    npm run dev
+    ```
+
+    Open [http://localhost:3000](http://localhost:3000) in your browser.
+  </Step>
+
+  <Step title="Create your first page">
+    Add a new MDX file in `content/docs/`:
+
+    ```mdx
+    ---
+    title: My First Page
+    description: A description of my page
+    ---
+
+    # Hello World
+
+    This is my first documentation page!
+    ```
+  </Step>
+</Steps>
+
+## Project Structure
+
+Here's an overview of the key directories:
+
+```
+my-docs/
+├── app/                    # Next.js app directory
+│   ├── docs/              # Documentation routes
+│   └── components/        # UI components
+├── content/
+│   └── docs/              # Your MDX documentation files
+│       ├── index.mdx      # Homepage
+│       └── meta.json      # Navigation structure
+├── lib/
+│   └── theme-config.ts    # Customize your theme here
+└── public/                # Static assets
+```
+
+## Adding Navigation
+
+Edit `content/docs/meta.json` to configure your sidebar navigation:
+
+```json
+{
+  "title": "Documentation",
+  "pages": [
+    "index",
+    "quickstart",
+    "---Getting Started---",
+    "installation",
+    "configuration"
+  ]
+}
+```
+
+<Info>
+Use `"---Section Name---"` to create section separators in your sidebar.
+</Info>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Learn Components" icon="code" href="/docs/components">
+    Explore all available MDX components
+  </Card>
+  <Card title="Customize Theme" icon="gear" href="/docs/theming">
+    Match your brand colors and styling
+  </Card>
+</CardGroup>
