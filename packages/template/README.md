@@ -54,12 +54,11 @@ npx create-unmint@latest --update
 
 #### Manual Installation
 
-You can also clone the template directly:
+You can also clone and customize manually:
 
 ```bash
-# Clone just the template
-git clone https://github.com/gregce/unmint.git
-cp -r unmint/packages/template my-docs
+# Clone the repository
+git clone https://github.com/gregce/unmint.git my-docs
 cd my-docs
 
 # Install dependencies
@@ -70,19 +69,6 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see your docs.
-
-## Repository Structure
-
-This is a monorepo containing:
-
-```
-unmint/
-├── packages/
-│   ├── create-unmint/   # CLI tool (npx create-unmint)
-│   └── template/        # The documentation template
-├── package.json
-└── README.md
-```
 
 ## Project Structure
 

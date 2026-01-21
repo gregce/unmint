@@ -1,0 +1,48 @@
+{
+  "name": "create-unmint",
+  "version": "1.0.0",
+  "description": "Create a new Unmint documentation project",
+  "type": "module",
+  "bin": {
+    "create-unmint": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "template"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean && npm run copy-template",
+    "copy-template": "rm -rf template && cp -r ../template template && rm -rf template/node_modules template/.next template/.git",
+    "dev": "tsup src/index.ts --format esm --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "execa": "^9.5.2",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^12.3.0",
+    "ora": "^8.1.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.10.7",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
+  },
+  "keywords": [
+    "create",
+    "unmint",
+    "documentation",
+    "docs",
+    "cli",
+    "scaffold"
+  ],
+  "author": "Greg Ceccarelli",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gregce/unmint.git",
+    "directory": "packages/create-unmint"
+  }
+}

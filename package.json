@@ -1,45 +1,29 @@
 {
   "name": "unmint",
   "version": "1.0.0",
-  "description": "A free, open-source Mintlify-style documentation system built with Next.js and Fumadocs",
   "private": true,
+  "description": "A free, open-source Mintlify-style documentation system",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gregce/unmint.git"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "test": "vitest",
-    "test:ui": "vitest --ui"
+    "dev": "npm run dev --workspace=packages/template",
+    "build": "npm run build --workspace=packages/template",
+    "build:cli": "npm run build --workspace=packages/create-unmint",
+    "test": "npm run test --workspace=packages/template"
   },
-  "dependencies": {
-    "@tailwindcss/postcss": "^4.1.18",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "fumadocs-core": "^16.4.7",
-    "fumadocs-mdx": "^14.2.5",
-    "lucide-react": "^0.483.0",
-    "next": "^15.5.7",
-    "next-themes": "^0.4.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwind-merge": "^3.0.2"
-  },
-  "devDependencies": {
-    "@tailwindcss/typography": "^0.5.16",
-    "@testing-library/dom": "^10.4.1",
-    "@testing-library/react": "^16.0.0",
-    "@types/mdx": "^2.0.13",
-    "@types/node": "^22",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@vitejs/plugin-react": "^4.3.4",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9",
-    "eslint-config-next": "^15.5.7",
-    "happy-dom": "^17.4.4",
-    "postcss": "^8.5.4",
-    "tailwindcss": "^4",
-    "typescript": "^5",
-    "vitest": "^3.1.4"
-  }
+  "keywords": [
+    "documentation",
+    "docs",
+    "mintlify",
+    "nextjs",
+    "mdx",
+    "fumadocs"
+  ],
+  "author": "Greg Ceccarelli",
+  "license": "MIT"
 }

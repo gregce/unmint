@@ -33,10 +33,6 @@ yarn-error.log*
 # Testing
 coverage
 
-# CLI build
-packages/create-unmint/dist
-packages/create-unmint/template
-
 # Vercel
 .vercel
 
