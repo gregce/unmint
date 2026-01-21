@@ -4,6 +4,8 @@ A free, open-source Mintlify-style documentation system built with Next.js and F
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
+![Unmint Screenshot](.github/assets/screenshot.png)
+
 ## What is Unmint?
 
 Unmint provides a beautiful, customizable documentation experience similar to [Mintlify](https://mintlify.com), but completely free and open source. It's designed to be forked, customized, and self-hosted.
