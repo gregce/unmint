@@ -27,7 +27,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'  # Node 24 includes npm 11+ with OIDC support
 
       - name: Install dependencies
         run: npm install
@@ -72,8 +72,10 @@ jobs:
           git push origin main --tags
 
       - name: Publish to npm
-        run: npm publish --access public
-        working-directory: packages/create-unmint
+        uses: JS-DevTools/npm-publish@v4
+        with:
+          package: packages/create-unmint/package.json
+          access: public
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
