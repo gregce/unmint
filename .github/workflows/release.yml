@@ -30,7 +30,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
-        run: npm ci
+        run: rm -f package-lock.json && npm install
         working-directory: packages/create-unmint
 
       - name: Configure git
