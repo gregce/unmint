@@ -7,14 +7,14 @@
 
 export const siteConfig = {
   // Site metadata
-  name: 'My Docs',
-  description: 'Documentation for My Project',
+  name: 'Unmint',
+  description: 'A free, open-source Mintlify-style documentation system',
   url: 'https://docs.example.com',
 
   // Logo configuration
   logo: {
     src: '/logo.png',
-    alt: 'My Project',
+    alt: 'Unmint',
     width: 40,
     height: 40,
   },
