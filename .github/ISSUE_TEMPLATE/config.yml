@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/gregce/unmint#readme
+    about: Check the README for setup and usage information
+  - name: Discussions
+    url: https://github.com/gregce/unmint/discussions
+    about: Ask questions or share ideas with the community

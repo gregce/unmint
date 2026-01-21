@@ -1,0 +1,59 @@
+name: "Feature Request: CLI"
+description: Suggest a new feature for the create-unmint CLI
+labels: ["enhancement", "cli"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a CLI feature! This is for improvements to `npx create-unmint`.
+
+        For template features (new components, styling), please use the Template feature request.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve? Why is it needed?
+      placeholder: I often need to scaffold projects with a specific configuration but currently have to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your ideal solution.
+      placeholder: |
+        Add a `--config` flag that accepts a JSON file with pre-configured options:
+        ```bash
+        npx create-unmint my-docs --config unmint.config.json
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered any alternative solutions or workarounds?
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Feature Scope
+      options:
+        - New command
+        - New flag/option
+        - Improved prompts
+        - Better error handling
+        - Update command improvements
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I'm willing to submit a PR for this feature

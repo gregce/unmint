@@ -1,0 +1,88 @@
+name: "Bug Report: CLI"
+description: Report an issue with the create-unmint CLI (scaffolding, prompts, installation)
+labels: ["bug", "cli"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a CLI bug! This template is for issues with `npx create-unmint`.
+
+        For template issues (components, styling, etc.), please use the Template bug report.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear description of what the bug is.
+      placeholder: When I run `npx create-unmint my-docs`, it fails with...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Run `npx create-unmint@latest my-docs`
+        2. Select option X
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: error
+    attributes:
+      label: Error Output
+      description: Paste any error messages or logs.
+      render: shell
+
+  - type: input
+    id: version
+    attributes:
+      label: CLI Version
+      description: Run `npx create-unmint --version`
+      placeholder: "1.0.1"
+    validations:
+      required: true
+
+  - type: input
+    id: node
+    attributes:
+      label: Node.js Version
+      description: Run `node --version`
+      placeholder: "v20.10.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - macOS
+        - Windows
+        - Linux
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: package-manager
+    attributes:
+      label: Package Manager
+      options:
+        - npm
+        - pnpm
+        - yarn
+        - bun
+    validations:
+      required: true

@@ -1,0 +1,90 @@
+name: "Bug Report: Template"
+description: Report an issue with the documentation template (components, styling, functionality)
+labels: ["bug", "template"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a template bug! This is for issues with the documentation site itself.
+
+        For CLI issues (scaffolding, installation), please use the CLI bug report.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear description of what the bug is.
+      placeholder: The Card component doesn't render correctly when...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected Area
+      description: Which part of the template is affected?
+      options:
+        - MDX Components (Card, Callout, Tabs, etc.)
+        - Styling/Theming
+        - Search
+        - Navigation/Sidebar
+        - Dark Mode
+        - Mobile/Responsive
+        - Build/Performance
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Create a new page with `<Card>` component
+        2. Add nested content
+        3. See styling issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Code Sample
+      description: If applicable, share the MDX or code that causes the issue.
+      render: mdx
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain the issue.
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      description: Which browser are you using?
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Unmint Version
+      description: Check your package.json or how you installed
+      placeholder: "1.0.1 or scaffolded with create-unmint@1.0.1"

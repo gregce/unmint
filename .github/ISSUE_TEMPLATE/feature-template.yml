@@ -1,0 +1,73 @@
+name: "Feature Request: Template"
+description: Suggest a new feature for the documentation template
+labels: ["enhancement", "template"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a template feature! This is for improvements to the documentation site.
+
+        For CLI features (scaffolding, prompts), please use the CLI feature request.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve? Why is it needed?
+      placeholder: When documenting APIs, I need a way to display request/response examples but...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your ideal solution. Include mockups or examples if possible.
+      placeholder: |
+        Add an `<APIEndpoint>` component that displays:
+        - Method and URL
+        - Request parameters
+        - Response example
+
+        Example usage:
+        ```mdx
+        <APIEndpoint method="GET" path="/users/{id}" />
+        ```
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Feature Category
+      options:
+        - New MDX component
+        - Improve existing component
+        - Theming/Styling
+        - Navigation/Layout
+        - Search
+        - Accessibility
+        - Performance
+        - Mobile experience
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered any alternative solutions or workarounds?
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples in the Wild
+      description: Are there other documentation sites that implement this well? Share links.
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I'm willing to submit a PR for this feature
