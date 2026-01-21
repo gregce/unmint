@@ -73,8 +73,10 @@ jobs:
           git push origin main --tags
 
       - name: Publish to npm
-        run: npm publish --access public
+        run: npm publish --provenance --access public
         working-directory: packages/create-unmint
+        env:
+          NODE_AUTH_TOKEN: ''  # Use OIDC for trusted publishing instead of token
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
