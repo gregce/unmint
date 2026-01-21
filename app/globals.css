@@ -43,17 +43,15 @@
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
 
-  /* Brand accent - customize this */
-  --brand-accent: #0891b2;
-  --brand-accent-foreground: #ffffff;
-  --brand-accent-muted: rgba(8, 145, 178, 0.1);
+  /* Brand accent colors - customize these for your brand */
+  --accent: #0891b2;
+  --accent-foreground: #ffffff;
+  --accent-muted: rgba(8, 145, 178, 0.1);
 }
 
 .dark {
@@ -69,17 +67,15 @@
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
 
-  /* Brand accent - brighter for dark mode */
-  --brand-accent: #22d3ee;
-  --brand-accent-foreground: #0f172a;
-  --brand-accent-muted: rgba(34, 211, 238, 0.1);
+  /* Brand accent colors - brighter for dark mode */
+  --accent: #22d3ee;
+  --accent-foreground: #0f172a;
+  --accent-muted: rgba(34, 211, 238, 0.1);
 }
 
 @layer base {
