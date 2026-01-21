@@ -12,6 +12,7 @@ import { Accordion, AccordionGroup } from './accordion'
 import { CodeBlock } from './code-block'
 import { Frame } from './frame'
 import { YouTube } from './youtube'
+import { Pre } from './pre'
 
 // Re-export for direct imports
 export { Card, CardGroup } from './card'
@@ -22,6 +23,7 @@ export { Accordion, AccordionGroup } from './accordion'
 export { CodeBlock } from './code-block'
 export { Frame } from './frame'
 export { YouTube } from './youtube'
+export { Pre } from './pre'
 
 export function getMDXComponents(): MDXComponents {
   return {
@@ -132,19 +134,12 @@ export function getMDXComponents(): MDXComponents {
     td: ({ children }) => (
       <td className="px-4 py-3 text-muted-foreground">{children}</td>
     ),
-    pre: ({ children, ...props }) => (
-      <pre
-        className="my-4 overflow-x-auto rounded-lg bg-[#fafafa] dark:bg-[#1a1a1f] p-4"
-        {...props}
-      >
-        {children}
-      </pre>
-    ),
+    pre: Pre,
     code: ({ children, className }) => {
       // Inline code (no className from syntax highlighter)
       if (!className) {
         return (
-          <code className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-sm font-mono">
+          <code className="px-1.5 py-0.5 mx-0.5 rounded-md bg-muted border border-border/50 text-sm font-mono text-foreground">
             {children}
           </code>
         )
