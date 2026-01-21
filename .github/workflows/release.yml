@@ -56,7 +56,8 @@ jobs:
               exit 0
             fi
           fi
-          npm version "$VERSION" --no-git-tag-version
+          # Use --allow-same-version in case the version was already bumped in the commit
+          npm version "$VERSION" --no-git-tag-version --allow-same-version
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Build CLI
