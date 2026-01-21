@@ -37,6 +37,9 @@ coverage
 packages/create-unmint/dist
 packages/create-unmint/template
 
+# Root package-lock (platform-specific, regenerated in CI)
+/package-lock.json
+
 # Vercel
 .vercel
 
