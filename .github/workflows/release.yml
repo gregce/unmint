@@ -1,14 +1,12 @@
 name: Release
 
 on:
-  push:
-    tags:
-      - 'v*'
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version to release (e.g., 1.0.1)'
+        description: 'Version to release (e.g., 1.0.1 or patch/minor/major)'
         required: true
+        default: 'patch'
 
 permissions:
   contents: write
@@ -19,6 +17,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -30,23 +30,35 @@ jobs:
         run: npm ci
         working-directory: packages/create-unmint
 
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Bump version
+        id: version
+        working-directory: packages/create-unmint
+        run: |
+          INPUT="${{ github.event.inputs.version }}"
+          if [[ "$INPUT" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            npm version "$INPUT" --no-git-tag-version
+            VERSION="$INPUT"
+          else
+            npm version "$INPUT" --no-git-tag-version
+            VERSION=$(node -p "require('./package.json').version")
+          fi
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
       - name: Build CLI
         run: npm run build
         working-directory: packages/create-unmint
 
-      - name: Get version
-        id: version
+      - name: Commit version bump
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            VERSION="${{ github.event.inputs.version }}"
-          else
-            VERSION="${GITHUB_REF#refs/tags/v}"
-          fi
-          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
-
-      - name: Update package version
-        run: npm version ${{ steps.version.outputs.version }} --no-git-tag-version
-        working-directory: packages/create-unmint
+          git add packages/create-unmint/package.json
+          git commit -m "Release v${{ steps.version.outputs.version }}"
+          git tag "v${{ steps.version.outputs.version }}"
+          git push origin main --tags
 
       - name: Publish to npm
         run: npm publish --access public
@@ -55,9 +67,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create GitHub Release
-        if: github.event_name == 'push'
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: v${{ steps.version.outputs.version }}
           generate_release_notes: true
           body: |
             ## Installation
