@@ -62,16 +62,20 @@ export async function init(projectName?: string, options: InitOptions = {}): Pro
   }
 
   // Install dependencies
+  let depsInstalled = false
   if (config.installDeps) {
     const installSpinner = ora('Installing dependencies...').start()
     try {
       // Detect package manager
       const packageManager = await detectPackageManager()
-      await execa(packageManager, ['install'], { cwd: targetDir })
+      await execa(packageManager, ['install'], { cwd: targetDir, stdio: 'pipe' })
       installSpinner.succeed(`Dependencies installed with ${packageManager}`)
+      depsInstalled = true
     } catch (error) {
       installSpinner.warn('Could not install dependencies')
-      console.log(chalk.dim(`  Run "npm install" manually to install dependencies`))
+      if (error instanceof Error && 'stderr' in error) {
+        console.log(chalk.dim(`  ${(error as any).stderr?.slice(0, 200) || error.message}`))
+      }
     }
   }
 
@@ -82,7 +86,7 @@ export async function init(projectName?: string, options: InitOptions = {}): Pro
   console.log('  Next steps:')
   console.log()
   console.log(chalk.cyan(`    cd ${config.projectName}`))
-  if (!config.installDeps) {
+  if (!depsInstalled) {
     console.log(chalk.cyan('    npm install'))
   }
   console.log(chalk.cyan('    npm run dev'))
