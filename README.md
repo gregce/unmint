@@ -57,6 +57,8 @@ npx create-unmint@latest my-docs
 
 This will prompt you for project configuration and set up everything automatically.
 
+![Terminal](.github/assets/terminal.png)
+
 #### CLI Options
 
 ```bash
