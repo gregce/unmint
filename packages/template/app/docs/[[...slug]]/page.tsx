@@ -6,7 +6,7 @@ import { getMDXComponents } from '../../components/docs/mdx'
 import { findNeighbour } from 'fumadocs-core/page-tree'
 import type { Metadata } from 'next'
 import type { Root, Node } from 'fumadocs-core/page-tree'
-import { siteConfig, themeConfig } from '@/lib/theme-config'
+import { getSiteUrl } from '@/lib/theme-config'
 
 interface PageProps {
   params: Promise<{ slug?: string[] }>
@@ -108,7 +108,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = page.data.description
 
   // Build OG image URL with query params
-  const ogImageUrl = new URL(`${siteConfig.url}/api/og`)
+  // getSiteUrl() auto-detects Vercel deployments
+  const baseUrl = getSiteUrl()
+  const ogImageUrl = new URL(`${baseUrl}/api/og`)
   ogImageUrl.searchParams.set('title', title)
   ogImageUrl.searchParams.set('section', section)
 
@@ -119,7 +121,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title,
       description,
       type: 'article',
-      url: `${siteConfig.url}${page.url}`,
+      url: `${baseUrl}${page.url}`,
       images: [
         {
           url: ogImageUrl.toString(),

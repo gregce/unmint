@@ -87,3 +87,18 @@ export function getCSSVariables(mode: 'light' | 'dark') {
     '--accent-muted': colors.accentMuted,
   }
 }
+
+/**
+ * Get the site URL dynamically
+ * Priority: NEXT_PUBLIC_SITE_URL > VERCEL_URL > siteConfig.url
+ * This allows OG images to work automatically on Vercel without configuration
+ */
+export function getSiteUrl(): string {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`
+  }
+  return siteConfig.url
+}
