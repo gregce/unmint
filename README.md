@@ -1,51 +1,46 @@
+<div align="center">
+
 # Unmint
+
+### Beautiful docs. Zero cost. Full control.
 
 A free, open-source Mintlify-style documentation system built with Next.js and Fumadocs.
 
-[![npm version](https://img.shields.io/npm/v/create-unmint.svg)](https://www.npmjs.com/package/create-unmint)
-[![npm downloads](https://img.shields.io/npm/dm/create-unmint.svg)](https://www.npmjs.com/package/create-unmint)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/create-unmint.svg?style=flat-square)](https://www.npmjs.com/package/create-unmint)
+[![npm downloads](https://img.shields.io/npm/dm/create-unmint.svg?style=flat-square)](https://www.npmjs.com/package/create-unmint)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+
+<br />
 
 ![Unmint Screenshot](.github/assets/screenshot.png)
+
+<br />
 
 ```bash
 npx create-unmint@latest my-docs
 ```
 
-<p align="center">
-  <a href="https://unmint.dev/docs"><strong>Test Drive Docs</strong></a>
-</p>
+<br />
 
-## What is Unmint?
+[**Test Drive Docs**](https://unmint.dev/docs)
 
-Unmint provides a beautiful, customizable documentation experience similar to [Mintlify](https://mintlify.com), but completely free and open source. It's designed to be forked, customized, and self-hosted.
+</div>
 
-### Features
+<br />
 
-- **Beautiful out-of-the-box** - Professional styling without configuration
-- **MDX Components** - Cards, callouts, tabs, steps, accordions, and more
-- **Built-in Search** - Full-text search powered by Fumadocs
-- **Dynamic OG Images** - Auto-generated social preview images
-- **Dark Mode** - Seamless light/dark theme switching
-- **Easy Theming** - Single config file for all customization
-- **SEO Optimized** - Automatic meta tags and sitemap
+## Features
 
-### What Unmint is NOT
+- **Beautiful out-of-the-box** — Professional styling without configuration
+- **MDX Components** — Cards, callouts, tabs, steps, accordions, and more
+- **Built-in Search** — Full-text search powered by Fumadocs
+- **Dynamic OG Images** — Auto-generated social preview images
+- **Dark Mode** — Seamless light/dark theme switching
+- **Easy Theming** — Single config file for all customization
+- **SEO Optimized** — Automatic meta tags and sitemap
 
-- A hosted SaaS (you deploy it yourself)
-- A replacement for all Mintlify features (no built-in analytics, AI search, etc.)
-- A no-code solution (basic Next.js knowledge helpful)
+> **Note:** Unmint is self-hosted, not a SaaS. You own everything and deploy it yourself.
 
 ## Quick Start
-
-### Prerequisites
-
-- Node.js 18+
-- npm, yarn, or pnpm
-
-### Installation
-
-The fastest way to get started is with our CLI:
 
 ```bash
 npx create-unmint@latest my-docs
