@@ -23,6 +23,13 @@ npx create-unmint@latest my-docs
 
 </div>
 
+## Sites using unmint
+
+| Site | Description |
+|------|-------------|
+| [specstory.com](https://specstory.com) | AI-powered documentation |
+| [intent.build](https://intent.build) | Developer tools |
+
 ## Features
 
 - **Beautiful out-of-the-box** — Professional styling without configuration
