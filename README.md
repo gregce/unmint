@@ -1,6 +1,8 @@
 <div align="center">
 
-# Unmint
+<img src=".github/assets/logo.svg" alt="unmint logo" width="80" />
+
+# unmint
 
 ### Beautiful docs. Zero cost. Full control.
 
@@ -19,16 +21,16 @@ A free, open-source Mintlify-style documentation system built with Next.js and F
 <table>
 <tr>
 <td>
+<a href="https://unmint.dev/docs">
+  <img src="https://img.shields.io/badge/Test_Drive_Docs-→-0891b2?style=for-the-badge&logoColor=white" alt="Test Drive Docs" />
+</a>
+</td>
+<td>
 
 ```bash
 npx create-unmint@latest my-docs
 ```
 
-</td>
-<td>
-<a href="https://unmint.dev/docs">
-  <img src="https://img.shields.io/badge/Test_Drive_Docs-→-0891b2?style=for-the-badge&logoColor=white" alt="Test Drive Docs" />
-</a>
 </td>
 </tr>
 </table>
