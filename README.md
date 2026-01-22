@@ -27,8 +27,8 @@ npx create-unmint@latest my-docs
 
 | Site | Description |
 |------|-------------|
-| [specstory.com](https://specstory.com) | AI-powered documentation |
-| [intent.build](https://intent.build) | Developer tools |
+| [specstory.com](https://specstory.com) | AI chat context management |
+| [intent.build](https://intent.build) | System of record for software decisions |
 
 ## Features
 
