@@ -29,7 +29,7 @@ export const siteConfig = {
 
   // Footer configuration
   footer: {
-    copyright: '© 2025 Your Company. All rights reserved.',
+    companyName: 'Your Company',
     links: [
       { label: 'Website', href: 'https://example.com' },
       { label: 'GitHub', href: 'https://github.com/your-org' },
