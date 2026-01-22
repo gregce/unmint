@@ -2,9 +2,17 @@
 
 A free, open-source Mintlify-style documentation system built with Next.js and Fumadocs.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+[![npm version](https://img.shields.io/npm/v/create-unmint.svg)](https://www.npmjs.com/package/create-unmint)
+[![npm downloads](https://img.shields.io/npm/dm/create-unmint.svg)](https://www.npmjs.com/package/create-unmint)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ![Unmint Screenshot](.github/assets/screenshot.png)
+
+```bash
+npx create-unmint@latest my-docs
+```
+
+**[View Demo & Docs](https://unmint.dev)** | **[GitHub](https://github.com/gregce/unmint)**
 
 ## What is Unmint?
 
