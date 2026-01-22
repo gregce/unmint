@@ -1,70 +1,35 @@
-# Unmint
+<div align="center">
+
+<img src="public/logo.svg" alt="unmint logo" width="80" />
+
+# unmint
+
+### Beautiful docs. Zero cost. Full control.
 
 A free, open-source Mintlify-style documentation system built with Next.js and Fumadocs.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+[![npm version](https://img.shields.io/npm/v/create-unmint.svg?style=flat-square)](https://www.npmjs.com/package/create-unmint)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+[![Test Drive Docs](https://img.shields.io/badge/Test_Drive_Docs-→-0891b2?style=flat-square)](https://unmint.dev/docs)
 
-## What is Unmint?
+</div>
 
-Unmint provides a beautiful, customizable documentation experience similar to [Mintlify](https://mintlify.com), but completely free and open source. It's designed to be forked, customized, and self-hosted.
+## Features
 
-### Features
+- **Beautiful out-of-the-box** — Professional styling without configuration
+- **MDX Components** — Cards, callouts, tabs, steps, accordions, and more
+- **Built-in Search** — Full-text search powered by Fumadocs
+- **Dynamic OG Images** — Auto-generated social preview images
+- **Dark Mode** — Seamless light/dark theme switching
+- **Easy Theming** — Single config file for all customization
+- **SEO Optimized** — Automatic meta tags and sitemap
 
-- **Beautiful out-of-the-box** - Professional styling without configuration
-- **MDX Components** - Cards, callouts, tabs, steps, accordions, and more
-- **Built-in Search** - Full-text search powered by Fumadocs
-- **Dynamic OG Images** - Auto-generated social preview images
-- **Dark Mode** - Seamless light/dark theme switching
-- **Easy Theming** - Single config file for all customization
-- **SEO Optimized** - Automatic meta tags and sitemap
-
-### What Unmint is NOT
-
-- A hosted SaaS (you deploy it yourself)
-- A replacement for all Mintlify features (no built-in analytics, AI search, etc.)
-- A no-code solution (basic Next.js knowledge helpful)
+> **Note:** Unmint is self-hosted, not a SaaS. You own everything and deploy it yourself.
 
 ## Quick Start
 
-### Prerequisites
-
-- Node.js 18+
-- npm, yarn, or pnpm
-
-### Installation
-
-The fastest way to get started is with our CLI:
-
 ```bash
-npx create-unmint@latest my-docs
-```
-
-This will prompt you for project configuration and set up everything automatically.
-
-#### CLI Options
-
-```bash
-# Create with all defaults (no prompts)
-npx create-unmint@latest my-docs --yes
-
-# Update an existing project to latest
-cd my-docs
-npx create-unmint@latest --update
-```
-
-#### Manual Installation
-
-You can also clone and customize manually:
-
-```bash
-# Clone the repository
-git clone https://github.com/gregce/unmint.git my-docs
-cd my-docs
-
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
 ```
 
