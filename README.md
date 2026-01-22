@@ -12,7 +12,9 @@ A free, open-source Mintlify-style documentation system built with Next.js and F
 npx create-unmint@latest my-docs
 ```
 
-**[View Demo & Docs](https://unmint.dev)** | **[GitHub](https://github.com/gregce/unmint)**
+<p align="center">
+  <a href="https://unmint.dev/docs"><strong>Test Drive Docs</strong></a>
+</p>
 
 ## What is Unmint?
 
