@@ -1,6 +1,6 @@
 {
   "name": "create-unmint",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Create a new Unmint documentation project",
   "type": "module",
   "bin": {
