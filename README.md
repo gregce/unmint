@@ -37,8 +37,6 @@ npx create-unmint@latest my-docs
 
 </div>
 
-<br />
-
 ## Features
 
 - **Beautiful out-of-the-box** — Professional styling without configuration
