@@ -13,7 +13,7 @@ export const siteConfig = {
 
   // Logo configuration
   logo: {
-    src: '/logo.png',
+    src: '/logo.svg',
     alt: 'Unmint',
     width: 40,
     height: 40,

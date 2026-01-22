@@ -54,6 +54,30 @@ cd my-docs
 npx create-unmint@latest --update
 ```
 
+### Add to Existing Next.js Project
+
+Already have a Next.js site? Add Unmint docs alongside your existing app:
+
+```bash
+# Navigate to your existing project
+cd my-existing-site
+
+# Add docs at /docs route
+npx create-unmint@latest --add
+
+# Or specify a custom route
+npx create-unmint@latest --add --path /documentation
+```
+
+This will:
+- Detect your project structure (src/app or app)
+- Copy docs components and sample content
+- Merge dependencies into your package.json
+- Add scoped CSS variables (won't conflict with your existing styles)
+- Wrap your next.config with MDX support
+
+Your existing site remains untouched - docs are added as a new route.
+
 #### Manual Installation
 
 You can also clone the template directly:

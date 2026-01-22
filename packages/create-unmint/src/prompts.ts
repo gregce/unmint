@@ -110,3 +110,80 @@ export function getDefaultConfig(projectName: string): ProjectConfig {
     installDeps: true,
   }
 }
+
+/**
+ * Configuration for adding docs to existing project
+ */
+export interface AddConfig {
+  docsRoute: string
+  title: string
+  description: string
+  accentColor: string
+}
+
+/**
+ * Prompt for add mode configuration
+ */
+export async function promptAddConfig(hasExistingDocs: boolean, customPath?: string): Promise<AddConfig> {
+  const answers = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'docsRoute',
+      message: 'Add Unmint docs at which route?',
+      default: customPath || (hasExistingDocs ? '/documentation' : '/docs'),
+      validate: (input: string) => {
+        if (!input.startsWith('/')) return 'Route must start with /'
+        if (!/^\/[a-z0-9-/]*$/i.test(input)) {
+          return 'Route can only contain letters, numbers, hyphens, and slashes'
+        }
+        return true
+      },
+    },
+    {
+      type: 'input',
+      name: 'title',
+      message: 'Docs title:',
+      default: 'Documentation',
+    },
+    {
+      type: 'input',
+      name: 'description',
+      message: 'Docs description:',
+      default: 'Documentation for your project',
+    },
+    {
+      type: 'list',
+      name: 'accentColor',
+      message: 'Accent color:',
+      choices: accentColors.map((c) => ({
+        name: c.name === 'Cyan' ? `${c.name} ${chalk.dim('(default)')}` : c.name,
+        value: c.value,
+      })),
+      default: '#0891b2',
+    },
+    {
+      type: 'input',
+      name: 'customAccent',
+      message: 'Custom accent color (hex):',
+      when: (answers) => answers.accentColor === 'custom',
+      validate: (input: string) => {
+        if (!/^#[0-9a-f]{6}$/i.test(input)) {
+          return 'Please enter a valid hex color (e.g., #ff5733)'
+        }
+        return true
+      },
+    },
+  ])
+
+  // Apply custom accent if selected
+  if (answers.accentColor === 'custom' && answers.customAccent) {
+    answers.accentColor = answers.customAccent
+  }
+
+  return {
+    docsRoute: answers.docsRoute,
+    title: answers.title,
+    description: answers.description,
+    accentColor: answers.accentColor,
+  }
+}
