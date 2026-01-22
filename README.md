@@ -22,7 +22,9 @@ npx create-unmint@latest my-docs
 
 <br />
 
-[**Test Drive Docs**](https://unmint.dev/docs)
+<a href="https://unmint.dev/docs">
+  <img src="https://img.shields.io/badge/Test_Drive_Docs-→-0891b2?style=for-the-badge&logoColor=white" alt="Test Drive Docs" />
+</a>
 
 </div>
 
