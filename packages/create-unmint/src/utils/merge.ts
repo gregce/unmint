@@ -298,33 +298,12 @@ export async function createMdxComponents(targetDir: string, appDir: string): Pr
   const componentsPath = appDir.includes('src') ? '@/app/components/docs/mdx' : '@/app/components/docs/mdx'
 
   const content = `import type { MDXComponents } from 'mdx/types'
-import defaultComponents from 'fumadocs-ui/mdx'
-import { Accordion } from '${componentsPath}/accordion'
-import { Callout, Note, Tip, Warning, Info } from '${componentsPath}/callout'
-import { Card, CardGroup } from '${componentsPath}/card'
-import { CodeBlock } from '${componentsPath}/code-block'
-import { Frame } from '${componentsPath}/frame'
-import { Steps, Step } from '${componentsPath}/steps'
-import { Tab, Tabs } from '${componentsPath}/tabs'
+import { getMDXComponents } from '${componentsPath}'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    ...defaultComponents,
+    ...getMDXComponents(),
     ...components,
-    Accordion,
-    Callout,
-    Note,
-    Tip,
-    Warning,
-    Info,
-    Card,
-    CardGroup,
-    CodeBlock,
-    Frame,
-    Steps,
-    Step,
-    Tab,
-    Tabs,
   }
 }
 `
