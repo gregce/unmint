@@ -16,15 +16,22 @@ A free, open-source Mintlify-style documentation system built with Next.js and F
 
 <br />
 
+<table>
+<tr>
+<td>
+
 ```bash
 npx create-unmint@latest my-docs
 ```
 
-<br />
-
+</td>
+<td>
 <a href="https://unmint.dev/docs">
   <img src="https://img.shields.io/badge/Test_Drive_Docs-→-0891b2?style=for-the-badge&logoColor=white" alt="Test Drive Docs" />
 </a>
+</td>
+</tr>
+</table>
 
 </div>
 
