@@ -11,29 +11,15 @@ A free, open-source Mintlify-style documentation system built with Next.js and F
 [![npm version](https://img.shields.io/npm/v/create-unmint.svg?style=flat-square)](https://www.npmjs.com/package/create-unmint)
 [![npm downloads](https://img.shields.io/npm/dm/create-unmint.svg?style=flat-square)](https://www.npmjs.com/package/create-unmint)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+[![Test Drive Docs](https://img.shields.io/badge/Test_Drive_Docs-→-0891b2?style=flat-square)](https://unmint.dev/docs)
 
 <br />
 
 ![Unmint Screenshot](.github/assets/screenshot.png)
 
-<br />
-
-<table>
-<tr>
-<td>
-<a href="https://unmint.dev/docs">
-  <img src="https://img.shields.io/badge/Test_Drive_Docs-→-0891b2?style=for-the-badge&logoColor=white" alt="Test Drive Docs" />
-</a>
-</td>
-<td>
-
 ```bash
 npx create-unmint@latest my-docs
 ```
-
-</td>
-</tr>
-</table>`
 
 </div>
 
