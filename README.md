@@ -30,6 +30,8 @@ npx create-unmint@latest my-docs
 | [specstory.com](https://specstory.com) | AI chat context management |
 | [intent.build](https://intent.build) | System of record for software decisions |
 
+*Open a PR to add your site*
+
 ## Features
 
 - **Beautiful out-of-the-box** — Professional styling without configuration
