@@ -34,7 +34,7 @@ export default function DocsLayout({
             <p className="text-sm text-muted-foreground">
               {siteConfig.footer.copyright}
             </p>
-            <div className="flex gap-4">
+            <div className="flex items-center gap-4">
               {siteConfig.footer.links.map((link) => (
                 <a
                   key={link.href}
@@ -46,6 +46,20 @@ export default function DocsLayout({
                   {link.label}
                 </a>
               ))}
+              <span className="text-muted-foreground/50">|</span>
+              <span className="text-xs text-muted-foreground/70">For AI:</span>
+              <a
+                href="/llms.txt"
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors font-mono"
+              >
+                llms.txt
+              </a>
+              <a
+                href="/llms-full.txt"
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors font-mono"
+              >
+                llms-full.txt
+              </a>
             </div>
           </div>
         </div>
