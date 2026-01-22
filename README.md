@@ -33,7 +33,7 @@ npx create-unmint@latest my-docs
 
 </td>
 </tr>
-</table>
+</table>`
 
 </div>
 
