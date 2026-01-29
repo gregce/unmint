@@ -7,6 +7,50 @@ import { cn } from '@/lib/utils'
 import { siteConfig } from '@/lib/theme-config'
 import type { Root, Node } from 'fumadocs-core/page-tree'
 
+// HTTP method detection from page names
+const HTTP_METHOD_PATTERNS: Record<string, string[]> = {
+  GET: ['List', 'Get', 'Fetch', 'Read', 'Search', 'Query'],
+  POST: ['Create', 'Add', 'Submit', 'Post'],
+  PATCH: ['Update', 'Modify', 'Edit'],
+  PUT: ['Replace', 'Set', 'Put'],
+  DELETE: ['Delete', 'Remove', 'Destroy'],
+  HEAD: ['Check', 'Verify', 'Exists'],
+}
+
+function getHttpMethod(name: string): string | null {
+  for (const [method, patterns] of Object.entries(HTTP_METHOD_PATTERNS)) {
+    if (patterns.some(pattern => name.startsWith(pattern))) {
+      return method
+    }
+  }
+  return null
+}
+
+// HTTP method badge colors
+const METHOD_COLORS: Record<string, { bg: string; text: string }> = {
+  GET: { bg: 'bg-emerald-500/20', text: 'text-emerald-600 dark:text-emerald-400' },
+  POST: { bg: 'bg-blue-500/20', text: 'text-blue-600 dark:text-blue-400' },
+  PATCH: { bg: 'bg-amber-500/20', text: 'text-amber-600 dark:text-amber-400' },
+  PUT: { bg: 'bg-orange-500/20', text: 'text-orange-600 dark:text-orange-400' },
+  DELETE: { bg: 'bg-red-500/20', text: 'text-red-600 dark:text-red-400' },
+  HEAD: { bg: 'bg-purple-500/20', text: 'text-purple-600 dark:text-purple-400' },
+}
+
+function HttpMethodBadge({ method }: { method: string }) {
+  const colors = METHOD_COLORS[method] || { bg: 'bg-gray-500/20', text: 'text-gray-600' }
+  const displayMethod = method === 'DELETE' ? 'DEL' : method
+
+  return (
+    <span className={cn(
+      'shrink-0 px-1.5 py-0.5 text-[10px] font-semibold rounded',
+      colors.bg,
+      colors.text
+    )}>
+      {displayMethod}
+    </span>
+  )
+}
+
 interface MobileSidebarProps {
   tree: Root
   isOpen: boolean
@@ -143,6 +187,34 @@ export function MobileSidebar({ tree, isOpen, onClose }: MobileSidebarProps) {
 
         {/* Navigation */}
         <nav className="h-[calc(100%-4rem)] overflow-y-auto p-4">
+          {/* Section tabs */}
+          <div className="flex gap-2 mb-4 pb-4 border-b border-border">
+            <Link
+              href="/docs"
+              onClick={onClose}
+              className={cn(
+                'flex-1 py-2 px-3 text-sm font-medium text-center rounded-md transition-colors',
+                !pathname.includes('/api-reference')
+                  ? 'bg-[var(--accent-muted)] text-[var(--accent)]'
+                  : 'bg-muted text-muted-foreground hover:text-foreground'
+              )}
+            >
+              Documentation
+            </Link>
+            <Link
+              href="/docs/api-reference"
+              onClick={onClose}
+              className={cn(
+                'flex-1 py-2 px-3 text-sm font-medium text-center rounded-md transition-colors',
+                pathname.includes('/api-reference')
+                  ? 'bg-[var(--accent-muted)] text-[var(--accent)]'
+                  : 'bg-muted text-muted-foreground hover:text-foreground'
+              )}
+            >
+              API Reference
+            </Link>
+          </div>
+
           {/* Quick links */}
           <div className="mb-6 pb-5 border-b border-border">
             <ul className="space-y-1">
@@ -270,6 +342,11 @@ function MobileSidebarNode({ node, pathname, onNavigate }: MobileSidebarNodeProp
 
   const isActive = pathname === node.url
 
+  // Check if this is an API endpoint page and extract the HTTP method
+  const isApiEndpoint = (node.url as string)?.includes('/api-reference/')
+  const nodeName = typeof node.name === 'string' ? node.name : ''
+  const httpMethod = isApiEndpoint ? getHttpMethod(nodeName) : null
+
   return (
     <li className="list-none">
       <Link
@@ -282,6 +359,7 @@ function MobileSidebarNode({ node, pathname, onNavigate }: MobileSidebarNodeProp
             : 'text-muted-foreground hover:text-foreground hover:bg-muted'
         )}
       >
+        {httpMethod && <HttpMethodBadge method={httpMethod} />}
         <span>{node.name}</span>
       </Link>
     </li>

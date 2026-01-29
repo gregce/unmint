@@ -13,6 +13,7 @@ import { CodeBlock } from './code-block'
 import { Frame } from './frame'
 import { YouTube } from './youtube'
 import { Pre } from './pre'
+import { ParamField, ResponseField, Expandable, RequestExample, ResponseExample, CodeGroup } from './api-components'
 
 // Re-export for direct imports
 export { Card, CardGroup } from './card'
@@ -24,6 +25,7 @@ export { CodeBlock } from './code-block'
 export { Frame } from './frame'
 export { YouTube } from './youtube'
 export { Pre } from './pre'
+export { ParamField, ResponseField, Expandable, RequestExample, ResponseExample, CodeGroup } from './api-components'
 
 export function getMDXComponents(): MDXComponents {
   return {
@@ -44,6 +46,13 @@ export function getMDXComponents(): MDXComponents {
     CodeBlock,
     Frame,
     YouTube,
+    // API documentation components
+    ParamField,
+    ResponseField,
+    Expandable,
+    RequestExample,
+    ResponseExample,
+    CodeGroup,
 
     // HTML element overrides
     h1: ({ children, id }) => (
